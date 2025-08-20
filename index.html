@@ -22,25 +22,28 @@
         <h2>Yay! 🎉 Love you! ❤️</h2>
     </div>
     <script>
-        function increaseYes() {
+     function increaseYes() {
         let yesButton = document.getElementById('yes');
         let noButton = document.getElementById('no');
 
+        // Mărim fontul și padding-ul
         let currentSize = window.getComputedStyle(yesButton).fontSize;
-        let newSize = parseFloat(currentSize) * 1.5;
+        let newSize = parseFloat(currentSize) * 1.4; // un pic mai mic pentru mobil
         yesButton.style.fontSize = newSize + 'px';
-        yesButton.style.padding = (parseFloat(yesButton.style.padding) || 10) * 1.5 + 'px';
+        yesButton.style.padding = (parseFloat(yesButton.style.padding) || 10) * 1.4 + 'px';
 
-      
-        if (newSize > window.innerWidth * 0.1) {
-            yesButton.style.width = '30vw';
-            yesButton.style.height = '15vh';
-            yesButton.style.fontSize = '5rem'; // text mare și vizibil
+        // Verificăm dimensiunea efectivă a butonului pe ecran
+        let rect = yesButton.getBoundingClientRect();
+
+        if (rect.width >= window.innerWidth * 0.8 || rect.height >= window.innerHeight * 0.5) {
+            yesButton.style.width = '100vw';
+            yesButton.style.height = '100vh';
+            yesButton.style.fontSize = '3rem'; // potrivit și pe telefon
             yesButton.style.display = 'flex';
             yesButton.style.justifyContent = 'center';
             yesButton.style.alignItems = 'center';
 
-            // Ascundem butonul "No"
+            // Ascundem butonul No
             noButton.style.display = 'none';
         }
     }
@@ -51,7 +54,6 @@
         document.getElementById('question').style.display = 'none';
         document.getElementById('dance').style.display = 'none';
     }
-        
     </script>
 </body>
 </html>
