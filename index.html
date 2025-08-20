@@ -23,22 +23,35 @@
     </div>
     <script>
         function increaseYes() {
-            let yesButton = document.getElementById('yes');
-            let currentSize = window.getComputedStyle(yesButton).fontSize;
-            let newSize = parseFloat(currentSize) * 1.5;
-            yesButton.style.fontSize = newSize + 'px';
-            yesButton.style.padding = (parseFloat(yesButton.style.padding) || 10) * 1.5 + 'px';
-            if (newSize > window.innerWidth * 0.8) {
-                yesButton.style.width = '100vw';
-                yesButton.style.height = '100vh';
-            }
+        let yesButton = document.getElementById('yes');
+        let noButton = document.getElementById('no');
+
+        let currentSize = window.getComputedStyle(yesButton).fontSize;
+        let newSize = parseFloat(currentSize) * 1.5;
+        yesButton.style.fontSize = newSize + 'px';
+        yesButton.style.padding = (parseFloat(yesButton.style.padding) || 10) * 1.5 + 'px';
+
+      
+        if (newSize > window.innerWidth * 0.2) {
+            yesButton.style.width = '30vw';
+            yesButton.style.height = '15vh';
+            yesButton.style.fontSize = '5rem'; // text mare și vizibil
+            yesButton.style.display = 'flex';
+            yesButton.style.justifyContent = 'center';
+            yesButton.style.alignItems = 'center';
+
+            // Ascundem butonul "No"
+            noButton.style.display = 'none';
         }
-        function showGif() {
-            document.getElementById('gif-container').style.display = 'block';
-            document.getElementById('buttons-container').style.display = 'none';
-            document.getElementById('question').style.display = 'none';
-            document.getElementById('dance').style.display = 'none';
-        }
+    }
+
+    function showGif() {
+        document.getElementById('gif-container').style.display = 'block';
+        document.getElementById('buttons-container').style.display = 'none';
+        document.getElementById('question').style.display = 'none';
+        document.getElementById('dance').style.display = 'none';
+    }
+        
     </script>
 </body>
 </html>
